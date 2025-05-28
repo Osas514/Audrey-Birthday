@@ -86,32 +86,52 @@ export default function Home() {
             transform: scale(1.05);
           }
         }
+        /* Responsive styles */
+        @media (max-width: 600px) {
+          .imagesWrapper {
+            flex-direction: column !important;
+            gap: 20px !important;
+          }
+          .title {
+            font-size: 2rem !important;
+          }
+          .caption {
+            font-size: 1rem !important;
+          }
+          .image {
+            width: 80vw !important;
+            max-width: 300px !important;
+            height: auto !important;
+          }
+        }
       `}</style>
 
       <audio ref={backgroundAudioRef} autoPlay loop volume={1}>
         <source src="/birthday.mp3" type="audio/mp3" />
       </audio>
 
-      <h1 style={styles.title}>Happy Birthday, Audrey, Too Cute!</h1>
+      <h1 className="title" style={styles.title}>Happy Birthday, Audrey, Too Cute!</h1>
 
-      <div style={styles.imagesWrapper}>
+      <div className="imagesWrapper" style={styles.imagesWrapper}>
         <div style={styles.imageBlock}>
           <img
             src="/her-picture.jpg"
             alt="Too Cute"
             onClick={() => handleImageClick(1)}
+            className="image"
             style={styles.image}
           />
-          <p style={styles.caption}>Click for birthday message from Uncle Osas</p>
+          <p className="caption" style={styles.caption}>Click for birthday message from Uncle Osas</p>
         </div>
         <div style={styles.imageBlock}>
           <img
             src="/her-picture-2.jpg"
             alt="Too Cute 2"
             onClick={() => handleImageClick(2)}
+            className="image"
             style={styles.image}
           />
-          <p style={styles.caption}>Click for birthday message from Grandpa</p>
+          <p className="caption" style={styles.caption}>Click for birthday message from Grandpa</p>
         </div>
       </div>
 
@@ -142,9 +162,11 @@ const styles = {
   },
   imagesWrapper: {
     display: "flex",
+    flexDirection: "row", // default to row on desktop
     justifyContent: "center",
     gap: "40px",
     marginTop: "20px",
+    flexWrap: "wrap", // wrap if needed on very small widths
   },
   imageBlock: {
     textAlign: "center",
