@@ -147,14 +147,17 @@ export default function Home() {
 }
 
 const styles = {
-  container: {
-    background: "linear-gradient(to right, #ffe0f0, #f0f8ff)",
-    height: "100vh",
-    textAlign: "center",
-    padding: "50px",
-    fontFamily: "Comic Sans MS, cursive",
-    userSelect: "none",
-  },
+  ccontainer: {
+  background: "linear-gradient(to right, #ffe0f0, #f0f8ff)",
+  minHeight: "100vh", // changed from height to minHeight
+  width: "100%", // ensure it spans full width
+  textAlign: "center",
+  padding: "50px",
+  fontFamily: "Comic Sans MS, cursive",
+  userSelect: "none",
+  backgroundSize: "cover", // optional for better scaling
+  backgroundRepeat: "no-repeat",
+},
   title: {
     fontSize: "3rem",
     color: "#ff69b4",
